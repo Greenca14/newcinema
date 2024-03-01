@@ -1,4 +1,33 @@
 <?php
+$number = "";
+$name = "";
+$email = "";
+$ticketType = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (isset($_POST['number'])) {
+      $number = $_POST['number'];
+      setcookie("user_number", $number, time() + 600);
+  }
+  if (isset($_POST['name'])) {
+      $name = $_POST['name'];
+      setcookie("user_name", $name, time() + 600);
+  }
+  if (isset($_POST['email'])) {
+      $email = $_POST['email'];
+      setcookie("user_email", $email, time() + 600);
+  }
+  if (isset($_POST['ticketType'])) {
+      $ticketType = $_POST['ticketType'];
+      setcookie("user_ticket_type", $ticketType, time() + 600);
+  }
+}
+
+$number = isset($_COOKIE["user_number"]) ? $_COOKIE["user_number"] : "";
+$name = isset($_COOKIE["user_name"]) ? $_COOKIE["user_name"] : "";
+$email = isset($_COOKIE["user_email"]) ? $_COOKIE["user_email"] : "";
+$ticketType = isset($_COOKIE["user_ticket_type"]) ? $_COOKIE["user_ticket_type"] : "";
+
 session_start();?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,14 +45,16 @@ session_start();?>
         box-sizing: border-box;
       }
       body {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         padding: 0;
         margin: 0;
         background-color: #eaeaea;
       }
 
       .card{
+        
         padding: 20px;
-        background: white;
+        background: #f2f2f2;
         border-radius: 20px;
         margin-top: 20px;
         font-family: 'Montserrat', sans-serif;
@@ -31,6 +62,7 @@ session_start();?>
       }
 
       .card-title{
+        
         font-size: 18px;
         font-weight: bold;
         font-family: 'Montserrat', sans-serif;
@@ -43,7 +75,7 @@ session_start();?>
         height: calc(90vh - 26px);
         background-size: cover;
       }
-
+        
       .texthold{
         display: flex;
         align-items: center;
@@ -77,6 +109,37 @@ session_start();?>
         font-family: 'Montserrat', sans-serif;
         color: white;
       }
+      .col{
+        background-color: mediumpurple;
+      }
+      button {
+        
+        background-color: coral;
+        border: none;
+        color: white;
+        padding: 10px 30px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 20px;
+        margin: 4px
+    }
+      input[type="text"],
+      input[type="email"] {
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+    }
+    a {
+        color: whitesmoke;
+        font-size: 16px;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
     </style>
 </head>
 <body>
@@ -92,13 +155,25 @@ session_start();?>
 <div class="container">
   <div class="texthold">
     <div class="card">
-      <div class="card-title">
-        А тут когда нибудь можно будет купить билеты
-      </div>
+      <form method="POST">
+        <div class="card-title">
+          <input type="text" name="number" required placeholder="Номер места" required value="<?php echo $number;  ?>"/><br>
+          <input type="text" name="name" required placeholder="Имя покупателя" required value="<?php echo $name; ?>" /><br>
+          <input type="email" name="email" required placeholder="Email" required value="<?php echo $email; ?>" /><br>
+          Тип билета: 
+    <select name="ticketType" required>
+        <option value="Обычный" <?php echo ($ticketType == 'Обычный') ? 'selected' : ''; ?>>Обычный</option>
+        <option value="VIP" <?php echo ($ticketType == 'VIP') ? 'selected' : ''; ?>>VIP</option>
+        <option value="Детский" <?php echo ($ticketType == 'Детский') ? 'selected' : ''; ?>>Детский</option>
+    </select><br>
+        </div>
       <div class="card-body">
-        Перейдя по <a href="index.php">ссылке</a>, вы вернетесь на главную страницу.
+        <button class="col"> <a href="ticket.php">Подтвердить</a> </button>
       </div>
+      </form>
+      <button> <a href="index.php">Вернуться на главную</a> </button>
     </div>
+      
     </div>
   <div class="another_text">
     <h3>Контактный номер: 8922423123</h3>

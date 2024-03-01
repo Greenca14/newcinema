@@ -78,7 +78,7 @@ unset($_SESSION['message']);
         background-color: coral;
         border: none;
         color: white;
-        padding: 12px 20px;
+        padding: 12px 30px;
         border-radius: 5px;
         cursor: pointer;
         font-size: 16px;
