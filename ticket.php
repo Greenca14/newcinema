@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 $number = "";
 $name = "";
@@ -23,13 +24,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 }
 
+echo "Номер места: $number <br> Имя покупателя: $name <br> Email: $email <br> Тип билета: $ticketType";
+
 $number = isset($_COOKIE["user_number"]) ? $_COOKIE["user_number"] : "";
 $name = isset($_COOKIE["user_name"]) ? $_COOKIE["user_name"] : "";
 $email = isset($_COOKIE["user_email"]) ? $_COOKIE["user_email"] : "";
 $ticketType = isset($_COOKIE["user_ticket_type"]) ? $_COOKIE["user_ticket_type"] : "";
 
-session_start();?>
-<!DOCTYPE html>
+session_start();
+?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -149,7 +153,7 @@ session_start();?>
     <?php if (!isset($_SESSION['username'])): ?>
         <a href="login.php" class="toptext" > Войти в личный кабинет </a>
     <?php else: ?>
-        <a href="profile.php" style="text-decoration: none" class="toptext" >Личный кабинет: <?php echo $_SESSION['username']; ?></a>
+        <a href="profile.php" style="text-decoration: none" class="toptext" >Личный кабинет: <?= $_SESSION['username'] ?></a>
     <?php endif; ?>
 </div>
 <div class="container">
@@ -157,14 +161,14 @@ session_start();?>
     <div class="card">
       <form method="POST">
         <div class="card-title">
-          <input type="text" name="number" required placeholder="Номер места" required value="<?php echo $number;  ?>"/><br>
-          <input type="text" name="name" required placeholder="Имя покупателя" required value="<?php echo $name; ?>" /><br>
-          <input type="email" name="email" required placeholder="Email" required value="<?php echo $email; ?>" /><br>
+          <input type="text" name="number" required placeholder="Номер места" required value="<?= $number  ?>"/><br>
+          <input type="text" name="name" required placeholder="Имя покупателя" required value="<?= $name ?>" /><br>
+          <input type="email" name="email" required placeholder="Email" required value="<?= $email ?>" /><br>
           Тип билета: 
     <select name="ticketType" required>
-        <option value="Обычный" <?php echo ($ticketType == 'Обычный') ? 'selected' : ''; ?>>Обычный</option>
-        <option value="VIP" <?php echo ($ticketType == 'VIP') ? 'selected' : ''; ?>>VIP</option>
-        <option value="Детский" <?php echo ($ticketType == 'Детский') ? 'selected' : ''; ?>>Детский</option>
+        <option value="Обычный" <?= ($ticketType == 'Обычный') ? 'selected' : '' ?>>Обычный</option>
+        <option value="VIP" <?= ($ticketType == 'VIP') ? 'selected' : '' ?>>VIP</option>
+        <option value="Детский" <?= ($ticketType == 'Детский') ? 'selected' : '' ?>>Детский</option>
     </select><br>
         </div>
       <div class="card-body">
