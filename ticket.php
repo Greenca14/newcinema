@@ -5,6 +5,7 @@ $name = "";
 $email = "";
 $ticketType = "";
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (isset($_POST['number'])) {
       $number = $_POST['number'];
@@ -24,12 +25,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 }
 
-echo "Номер места: $number <br> Имя покупателя: $name <br> Email: $email <br> Тип билета: $ticketType";
-
-$number = isset($_COOKIE["user_number"]) ? $_COOKIE["user_number"] : "";
-$name = isset($_COOKIE["user_name"]) ? $_COOKIE["user_name"] : "";
-$email = isset($_COOKIE["user_email"]) ? $_COOKIE["user_email"] : "";
-$ticketType = isset($_COOKIE["user_ticket_type"]) ? $_COOKIE["user_ticket_type"] : "";
+$number = isset($_POST['number']) ? $_POST['number'] : (isset($_COOKIE["user_number"]) ? $_COOKIE["user_number"] : "");
+$name = isset($_POST['name']) ? $_POST['name'] : (isset($_COOKIE["user_name"]) ? $_COOKIE["user_name"] : "");
+$email = isset($_POST['email']) ? $_POST['email'] : (isset($_COOKIE["user_email"]) ? $_COOKIE["user_email"] : "");
+$ticketType = isset($_POST['ticketType']) ? $_POST['ticketType'] : (isset($_COOKIE["user_ticket_type"]) ? $_COOKIE["user_ticket_type"] : "");
 
 session_start();
 ?>
@@ -54,9 +53,7 @@ session_start();
         margin: 0;
         background-color: #eaeaea;
       }
-
       .card{
-        
         padding: 20px;
         background: #f2f2f2;
         border-radius: 20px;
@@ -64,14 +61,11 @@ session_start();
         font-family: 'Montserrat', sans-serif;
         width: 350px;
       }
-
       .card-title{
-        
         font-size: 18px;
         font-weight: bold;
         font-family: 'Montserrat', sans-serif;
       }
-
       .container{
         padding: 10px;
         background-image: url("fonkino.jpg");
@@ -79,20 +73,16 @@ session_start();
         height: calc(90vh - 26px);
         background-size: cover;
       }
-        
       .texthold{
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 60px;
         flex-wrap: wrap;
-
       }
-
       .top > * {
         margin: 0;
       }
-
       .top{
         display: flex;
         align-items: center;
@@ -117,7 +107,6 @@ session_start();
         background-color: mediumpurple;
       }
       button {
-        
         background-color: coral;
         border: none;
         color: white;
@@ -126,6 +115,16 @@ session_start();
         cursor: pointer;
         font-size: 20px;
         margin: 4px
+    }
+    input[type="submit"] {
+        background-color: mediumpurple;
+        border: none;
+        color: white;
+        padding: 10px 30px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin: 4px;
     }
       input[type="text"],
       input[type="email"] {
@@ -172,7 +171,7 @@ session_start();
     </select><br>
         </div>
       <div class="card-body">
-        <button class="col"> <a href="ticket.php">Подтвердить</a> </button>
+        <input type="submit" value="Подтвердить">
       </div>
       </form>
       <button> <a href="index.php">Вернуться на главную</a> </button>
