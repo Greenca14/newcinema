@@ -43,7 +43,7 @@ session_start();?>
         height: calc(90vh - 26px);
         background-size: cover;
       }
-
+ 
       .texthold{
         display: flex;
         align-items: center;

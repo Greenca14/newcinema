@@ -12,7 +12,7 @@ session_start();?>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
     <title>Cinema</title>
     <style>
-        *{
+        *{ 
             box-sizing: border-box;
         }
         body {

@@ -100,7 +100,7 @@ if ($_SESSION['pfp'] != 'NULL') {
     <title>Личный кабинет</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
+<body> 
 <div class="container">
     <div class="center">
         <form action="authentic.php" method="get">

@@ -87,7 +87,7 @@ session_start();?>
             color: white;
         }
 
-    </style>
+    </style> 
 </head>
 <body>
 <div class="top" >

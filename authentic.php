@@ -1,7 +1,7 @@
 <?php
 session_start(["use_strict_mode" => true]);
 require('database2.php');
-if (isset($_GET['reg'])){
+if (isset($_GET['reg'])){ 
     if (isset($_FILES['addfile'])) {
         $fp = fopen($_FILES['addfile']['tmp_name'], 'rb');
         $bin_img = base64_encode(fread($fp, $_FILES['addfile']['size']));

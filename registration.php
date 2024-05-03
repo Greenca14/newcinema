@@ -95,7 +95,7 @@ unset($_SESSION['message']);
         text-decoration: underline;
     }
 
-</style>
+</style> 
 <div class="container">
     <h1 class="color">Регистрация</h1>
     <div class="auth-form">

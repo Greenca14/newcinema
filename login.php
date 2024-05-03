@@ -94,7 +94,7 @@ unset($_SESSION['message']);
     a:hover {
         text-decoration: underline;
     }
-</style>
+</style> 
 <div class="container">
     <h1 class="color">Вход</h1>
         <div class="auth-form">
