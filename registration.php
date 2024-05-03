@@ -104,7 +104,7 @@ unset($_SESSION['message']);
             <input type="text" name="login" required placeholder="Логин">
             <input type="password" name="password" required placeholder="Пароль">
             <input type="submit" name="sender" value="Зарегестрироваться">
-            <input onclick="location.href = 'http://kinoteatr/login.php';" type="button" value="Войти">
+            <input onclick="location.href = 'http://newcinema/login.php';" type="button" value="Войти">
         </form>
 
         <?php if (!isset($_SESSION['username'])): ?>

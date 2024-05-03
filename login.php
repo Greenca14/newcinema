@@ -102,8 +102,8 @@ unset($_SESSION['message']);
                 <input type="text" name="login" required placeholder="Логин">
                 <input type="password" name="password" required placeholder="Пароль">
                 <input type="submit" name="sender" value="Войти">
-<!--                <button onclick="location.href = 'http://kinoteatr/registration.php';" > Зарегестрироваться</button>-->
-                <input onclick="location.href = 'http://kinoteatr/registration.php';" type="button" value="Зарегестрироваться">
+<!--                <button onclick="location.href = 'http://newcinema/registration.php';" > Зарегестрироваться</button>-->
+                <input onclick="location.href = 'http://newcinema/registration.php';" type="button" value="Зарегестрироваться">
             </form>
 
             <?php if (!isset($_SESSION['username'])): ?>
