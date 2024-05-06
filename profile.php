@@ -6,7 +6,7 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 
-if ($_SESSION['pfp'] != 'NULL') {
+if (isset($_SESSION['pfp']) && $_SESSION['pfp'] != 'NULL') {
     $pfp = 'data:image/png;base64,'.$_SESSION['pfp'];
 } else {
     $pfp = './user.png';
@@ -15,7 +15,6 @@ if ($_SESSION['pfp'] != 'NULL') {
 ?>
 
 <!DOCTYPE html>
-
 <style>
     body {
         font-family: "Montserrat", sans-serif;
@@ -64,6 +63,7 @@ if ($_SESSION['pfp'] != 'NULL') {
         padding: 10px 20px;
         text-align: center;
         text-decoration: none;
+        border-radius: 5px;
         display: inline-block;
         margin: 4px 2px;
         cursor: pointer;
@@ -78,6 +78,7 @@ if ($_SESSION['pfp'] != 'NULL') {
         color: white;
         font-size: 16px;
         padding: 10px 20px;
+        border-radius: 5px;
         text-align: center;
         text-decoration: none;
         display: inline-block;

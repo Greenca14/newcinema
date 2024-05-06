@@ -102,12 +102,10 @@ unset($_SESSION['message']);
                 <input type="text" name="login" required placeholder="Логин">
                 <input type="password" name="password" required placeholder="Пароль">
                 <input type="submit" name="sender" value="Войти">
-<!--                <button onclick="location.href = 'http://newcinema/registration.php';" > Зарегестрироваться</button>-->
                 <input onclick="location.href = 'http://newcinema/registration.php';" type="button" value="Зарегестрироваться">
             </form>
 
             <?php if (!isset($_SESSION['username'])): ?>
-                <!--        <button> <a href="reg.php">Зарегистрироваться</a></button>-->
             <?php else: ?>
                 <button><a href="authentic.php?logout=1">Выйти из учетной записи</a></button>
             <?php endif; ?>
