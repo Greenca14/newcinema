@@ -79,19 +79,32 @@ session_start();?>
       }
     </style>
 </head>
+
 <body>
 
 <div class="container">
   <div class="texthold">
     <div class="card">
-      <div class="card-title">
-        А тут когда нибудь можно будет купить билеты
-      </div>
-      <div class="card-body">
-        Перейдя по <a href="index.php">ссылке</a>, вы вернетесь на главную страницу.
-      </div>
+        <div class="card-title">
+            О нашей компании.
+        </div>
+        <div class="card-body">
+            Наша компания работает с 2011 года. Мы предлагаем вам самые выгодные предложения по самой выгодной цене.
+        </div>
     </div>
+    <div class="card">
+        <div class="card-title">
+            Лучший сервис.
+        </div>
+        <div class="card-body">
+            Лучшие цены. (Этот блок сделан для демонстрации сохраниния адаптивности)
+        </div>
     </div>
+    <div class="card">
+            <div class="card-title">
+                <a href="index.php"> Вернуться обратно</a>
+            </div>
+        </div>
   <div class="another_text">
     <h3>Контактный номер: 8922423123</h3>
   </div>

@@ -78,6 +78,15 @@ session_start();?>
             font-family: 'Montserrat', sans-serif;
             color: white;
         }
+        ul, 
+        li{
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .link{
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+        }
     </style>
 </head>
 <body>
@@ -91,7 +100,34 @@ session_start();?>
     <?php endif; ?>
 </div>
 <div class="container">
-    <div class="texthold">
+    <?php
+    if(isset($_GET['page'])) {
+        $page = $_GET['page'];
+        switch($page) {
+            case 'page1':
+                include 'ticket.php';
+                break;
+            case 'page2':
+                include 'company.php';
+                break;
+            case 'page3':
+                include 'garan.php';
+                break;
+            default:
+                echo "Страница не найдена.";
+        }
+    } else {
+        ?>
+    <ul class="link">
+        <li><a href="index.php?page=page1">Купить билет</a></li>
+        <li><a href="index.php?page=page2">Общая информация</a></li>
+        <li><a href="index.php?page=page3">Гарантии</a></li>
+    </ul>
+    <?php
+}
+?>
+
+     <!-- <div class="texthold"> 
         <div class="card">
             <div class="card-title">
                 Купить билеты.
@@ -119,7 +155,7 @@ session_start();?>
             </div>
         </div>
 
-    </div>
+    </div> -->
     <div class="another_text">
         <h3>Контактный номер: 8922423123</h3>
     </div>

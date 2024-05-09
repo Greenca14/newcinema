@@ -90,15 +90,7 @@ session_start();?>
     </style> 
 </head>
 <body>
-<div class="top" >
-    <h1 class="toptext">Поиск дешевых билетов в Кино</h1>
-    <p class="toptext" >Лучший агрегатор для поиска билетов</p>
-    <?php if (!isset($_SESSION['username'])): ?>
-        <a href="login.php" class="toptext" > Войти в личный кабинет </a>
-    <?php else: ?>
-        <a href="profile.php" style="text-decoration: none" class="toptext" >Личный кабинет: <?php echo $_SESSION['username']; ?></a>
-    <?php endif; ?>
-</div>
+
 <div class="container">
     <div class="texthold">
         <div class="card2">
